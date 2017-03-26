@@ -1,4 +1,4 @@
-package com.huawei.mywritefileapp;
+package com.sample;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

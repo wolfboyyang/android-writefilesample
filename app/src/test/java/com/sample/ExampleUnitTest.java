@@ -1,4 +1,4 @@
-package com.huawei.mywritefileapp;
+package com.sample;
 
 import org.junit.Test;
 

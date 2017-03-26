@@ -1,4 +1,4 @@
-package com.huawei.mywritefileapp;
+package com.sample;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -9,8 +9,11 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
+
+import com.sample.R;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -86,9 +89,11 @@ public class MainActivity extends AppCompatActivity {
                 // Show an expanation to the user *asynchronously* -- don't block
                 // this thread waiting for the user's response! After the user
                 // sees the explanation, try again to request the permission.
-                Toast.makeText(getApplicationContext(),
+                Toast toast = Toast.makeText(getApplicationContext(),
                         "The app really need storage permission to write logs.",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
 
                 // request permission again;
                 ActivityCompat.requestPermissions(this,
@@ -96,9 +101,11 @@ public class MainActivity extends AppCompatActivity {
                         MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE);
             } else {
                 // First Run or Always Denied not ask again.
-                Toast.makeText(getApplicationContext(),
+                Toast toast = Toast.makeText(getApplicationContext(),
                         "The app need storage permission to write logs.",
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_LONG);
+                toast.setGravity(Gravity.CENTER,0,0);
+                toast.show();
                 Log.i(LOG_TAG, "require write permission");
 
                 // No explanation needed, we can request the permission.
@@ -113,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         } else {
-            Toast.makeText(getApplicationContext(), "已经有存储权限", Toast.LENGTH_LONG).show();
             Log.i(LOG_TAG, "We already have write permission.");
         }
     }
